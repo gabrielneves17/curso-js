@@ -1,5 +1,6 @@
 /*
 Operadores Lógicos
+
 && -> AND -> E (Todas as expressões do teste precisam ser verdadeiras para o resultado ser verdadeiro.)
 || -> OR -> OU
 ! -> NOT -> NÃO
