@@ -35,4 +35,4 @@ for(let i = 0; i < elementos.length; i++) {
     elemCriado.appendChild(textoCriado);
     div.appendChild(elemCriado);
 }
-container.appendChild(div);
+container.appendChild(div); 
