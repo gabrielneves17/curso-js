@@ -17,11 +17,12 @@ function random(min, max) {
     return Math.floor(r);
 }
 
-const min = 1;
-const max = 50;
+let min = 1;
+let max = 50;
+
 let rand = random(min, max);
 
 do {
     rand = random(min, max);
     console.log(rand);
-} while(rand !== 10);
+} while(rand !== 10)
