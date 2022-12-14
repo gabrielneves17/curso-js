@@ -1,5 +1,8 @@
 // setInterval e setTimeout
 
+// setInterval seta intervalos de tempo 
+// setTimeout seta um fim para esses intervalos
+
 function mostraHora() {
     let data = new Date();
     
