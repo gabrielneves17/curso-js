@@ -58,3 +58,10 @@ body {
     background: var(--primeira-cor-darker);
 }
 
+.relogio {
+    font-size: 3em;
+}
+
+.pausado {
+    color: red;
+}
