@@ -1,4 +1,4 @@
-const novaTarefa = document.querySelector('.input-tarefa');
+const inputTarefa = document.querySelector('.input-tarefa');
 const btnTarefa = document.querySelector('.btn-tarefa');
 const tarefas = document.querySelector('.tarefas');
 
@@ -7,26 +7,25 @@ function criaLi() {
     return li;
 }
 
-novaTarefa.addEventListener('keypress', function(e) {
+inputTarefa.addEventListener('keypress', function(e) {
     if(e.keyCode === 13) {
-        if(!novaTarefa.value) return;
-        criaTarefa(novaTarefa.value);
+        if(!inputTarefa.value) return;
+        criaTarefa(inputTarefa.value);
     }
 });
 
-function limpaInput()  {
-    novaTarefa.value = '';
-    novaTarefa.focus();
+function limpaInput() {
+    inputTarefa.value = '';
+    inputTarefa.focus();
 }
 
 function criaBotaoApagar(li) {
-    li.innerText += ' ';
+    li.innerHTML += ' ';
     const botaoApagar = document.createElement('button');
     botaoApagar.innerText = 'Apagar';
     botaoApagar.setAttribute('class', 'apagar');
     li.appendChild(botaoApagar);
 }
-
 
 function criaTarefa(textoInput) {
     const li = criaLi();
@@ -37,16 +36,13 @@ function criaTarefa(textoInput) {
     salvarTarefas();
 }
 
-
 btnTarefa.addEventListener('click', function() {
-    if(!novaTarefa.value) return;
-    criaTarefa(novaTarefa.value);
+    if(!inputTarefa.value) return;
+    criaTarefa(inputTarefa.value);
 });
 
 document.addEventListener('click', function(e) {
     const elem = e.target;
-    
-    console.log(elem);
 
     if(elem.classList.contains('apagar')) {
         elem.parentElement.remove();
@@ -61,19 +57,18 @@ function salvarTarefas() {
     for(let tarefa of liTarefas) {
         let tarefaTexto = tarefa.innerText;
         tarefaTexto = tarefaTexto.replace('Apagar', '').trim();
-        console.log(tarefaTexto);
         listaDeTarefas.push(tarefaTexto);
-    }
 
-    const tarefasJSON = JSON.stringify(listaDeTarefas);
-    localStorage.setItem('tarefas', tarefasJSON);
+        const tarefasJSON = JSON.stringify(listaDeTarefas);
+        localStorage.setItem('tarefas', tarefasJSON);
+    }
 }
 
 function adicionaTarefasSalvas() {
     const tarefas = localStorage.getItem('tarefas');
+    console.log(tarefas);
     const listaDeTarefas = JSON.parse(tarefas);
-    console.log(listaDeTarefas);
-
+    
     for(let tarefa of listaDeTarefas) {
         criaTarefa(tarefa);
     }
